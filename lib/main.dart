@@ -1,11 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:learn_flutter/list/learn_list.dart';
 
 void main() {
-  runApp(MyApp(items: List.generate(200, (index) => "Item $index")));
+  runApp(MyApp(items: _buildMainRouteList()));
+}
+
+Map<String, Widget> _buildMainRouteList() {
+  return {
+    "Learn List": const ListRoute(),
+    "Learn List2": const ListRoute(),
+    "Learn List3": const ListRoute(),
+    "Learn List4": const ListRoute(),
+  };
 }
 
 class MyApp extends StatelessWidget {
-  final List<String> items;
+  final Map<String, Widget> items;
   const MyApp({super.key, required this.items});
 
   @override
@@ -15,13 +25,7 @@ class MyApp extends StatelessWidget {
       appBar: AppBar(
         title: const Text("List"),
       ),
-      body: ListView.builder(
-          itemCount: items.length,
-          itemBuilder: ((context, index) {
-            return ListTile(
-              title: Center(child: Text(items[index])),
-            );
-          })),
+      body: buildSimpleList(items),
     ));
   }
 }
