@@ -7,10 +7,10 @@ void main() {
 
 Map<String, Widget> _buildMainRouteList() {
   return {
-    "Learn List": const ListRoute(),
-    "Learn List2": const ListRoute(),
-    "Learn List3": const ListRoute(),
-    "Learn List4": const ListRoute(),
+    "Learn List": ListRoute(),
+    "Simple List": SimpleListRoute(),
+    "AnimatedList": ListRoute(),
+    "Learn List4": ListRoute(),
   };
 }
 
@@ -21,11 +21,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        home: Scaffold(
-      appBar: AppBar(
-        title: const Text("List"),
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text("List"),
+        ),
+        body: buildSimpleList(items),
       ),
-      body: buildSimpleList(items),
-    ));
+    );
   }
 }

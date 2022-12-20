@@ -21,15 +21,41 @@ Widget buildSimpleList(Map<String, Widget> items) {
 }
 
 class ListRoute extends StatelessWidget {
-  const ListRoute({super.key});
-
+  final Map<String, Widget> items = {};
+  ListRoute({super.key}) {
+    for (var element in List.generate(10, (index) => "Item $index")) {
+      items[element] = SimpleListRoute();
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("ListRoute"),
       ),
-      body: const Text("ListRoute"),
+      body: buildSimpleList(items),
+    );
+  }
+}
+
+class SimpleListRoute extends StatelessWidget {
+  final List<String> items = List.generate(200, (index) => "Item $index");
+  SimpleListRoute({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("SimpleListRoute"),
+      ),
+      body: ListView.separated(
+        itemCount: items.length,
+        itemBuilder: ((context, index) {
+          return ListTile(
+            title: Center(child: Text(items[index])),
+          );
+        }),
+        separatorBuilder: (BuildContext context, int index) => const Divider(),
+      ),
     );
   }
 }
