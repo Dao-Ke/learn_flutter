@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learn_flutter/list/learn_list.dart';
+import 'package:learn_flutter/list/learn_animated_list.dart';
 
 void main() {
   runApp(MyApp(items: _buildMainRouteList()));
@@ -9,7 +10,7 @@ Map<String, Widget> _buildMainRouteList() {
   return {
     "Learn List": ListRoute(),
     "Simple List": SimpleListRoute(),
-    "AnimatedList": ListRoute(),
+    "AnimatedList": const AnimatedListRoute(),
     "Learn List4": ListRoute(),
   };
 }
