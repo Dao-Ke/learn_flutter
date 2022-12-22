@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:logger/logger.dart';
+
+final logger = Logger();
 
 class AnimatedListRoute extends StatefulWidget {
   const AnimatedListRoute({super.key});
@@ -31,12 +34,15 @@ class _AnimatedListSampleState extends State<AnimatedListRoute> {
   void _insert() {
     int index =
         _selectedItem == null ? _list.length : _list.indexOf(_selectedItem!);
+    logger.d("insert at index: $index");
     _list.insert(index, _nextItem++);
   }
 
   void _remove() {
     if (_selectedItem != null) {
-      _list.removeAt(_list.indexOf(_selectedItem!));
+      int index = _list.indexOf(_selectedItem!);
+      logger.d("remove at index: $index");
+      _list.removeAt(index);
       setState(() {
         if (_list.length > 0) {
           _selectedItem = _list[_list.length - 1];
