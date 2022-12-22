@@ -38,7 +38,11 @@ class _AnimatedListSampleState extends State<AnimatedListRoute> {
     if (_selectedItem != null) {
       _list.removeAt(_list.indexOf(_selectedItem!));
       setState(() {
-        _selectedItem = null;
+        if (_list.length > 0) {
+          _selectedItem = _list[_list.length - 1];
+        } else {
+          _selectedItem = null;
+        }
       });
     }
   }
