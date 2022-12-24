@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:learn_flutter/list/learn_list.dart';
 import 'package:learn_flutter/list/learn_animated_list.dart';
+import 'package:learn_flutter/list/mediaplayer.dart';
 
 void main() {
   runApp(MyApp(items: _buildMainRouteList()));
@@ -11,7 +12,7 @@ Map<String, Widget> _buildMainRouteList() {
     "Learn List": ListRoute(),
     "Simple List": SimpleListRoute(),
     "AnimatedList": const AnimatedListRoute(),
-    "Learn List4": ListRoute(),
+    "AudioPayer": const AudioPlayerRoute(),
   };
 }
 
