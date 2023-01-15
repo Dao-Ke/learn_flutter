@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:learn_flutter/list/learn_list.dart';
 import 'package:learn_flutter/list/learn_animated_list.dart';
-import 'package:learn_flutter/list/mediaplayer.dart';
+import 'package:learn_flutter/list/audioplayer.dart';
 
 void main() {
   runApp(MyApp(items: _buildMainRouteList()));
